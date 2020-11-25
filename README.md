@@ -39,32 +39,64 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Create Project
+## install bootstrap
+`npm install bootstrap --save`
+### import bootstrap resource in src/index.js
+```jsx
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+## Ex1 Form
+1. Create **function Component Person** with arrow function
+2. Create **class Component PersonForm**
+    - static HTML Form
+    - constructor(props)
+    - savePersonHandler empty method
+    - handleChange for FirstName LastName empty method
+    - add attribute value and onChange in all foem fields
+    - add Person component at the end of form
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## EX2 Table
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Create TableHeader
+2. Create TableStaticRow
+3. Create TableView
+4. Create TableRow
+5. Change TableStaticRow to TableRow in TableView
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## EX3 Routing
 
-### Analyzing the Bundle Size
+1. install react couter
+    - `npm install react-router-dom`
+    - import int App.js `import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';`
+2. Change App.js
+```jsx
+import logo from './logo.svg';
+import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import PersonForm from './components/PersonForm';
+import TableView from './components/TableView';
+import Menu from './components/Menu';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+function App() {
+  return (
+    <div>
+      <Router>
+        <Switch> 
+            <Route path = "/menu" exact component = {Menu}></Route>
+            <Route path = "/" exact component = {TableView}></Route>
+            <Route path = "/person-form" component = {PersonForm}></Route>
+            <Route path = "/person-view" component = {TableView}></Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+}
 
-### Making a Progressive Web App
+export default App;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Create Menu Component and add rout in App.js
+` <Route path = "/menu" exact component = {Menu}></Route>`
